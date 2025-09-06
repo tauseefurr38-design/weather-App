@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About - My Weather App</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-left">
+    <h1 class="navbar-title">My Weather App</h1>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrapper">
+  <div class="weather-card">
+    <h1>About My Weather App</h1>
+    <p>
+      This app provides real-time weather updates for cities worldwide.
+      Check temperature, humidity, wind speed, and pressure in a visually appealing interface.
+    </p>
+
+    <div class="weather-detail" style="margin-top: 20px;">
+      <strong>Our Goal:</strong> Make weather information accessible, accurate, and visually engaging for everyone around the globe.
+    </div>
+
+    <h2 style="margin-top: 25px;">User Reviews</h2>
+    <div id="reviewSection">
+      <div class="weather-detail"><strong>Ali:</strong> "Great app! Accurate and easy to use."</div>
+      <div class="weather-detail"><strong>Sara:</strong> "Love the design and city suggestions!"</div>
+    </div>
+
+    <input type="text" id="reviewInput" placeholder="Write your comment..." class="search-input" style="margin-top:15px;"><br>
+    <button id="addReviewBtn" style="margin-top:10px;">Submit Review</button>
+  </div>
+</div>
+
+<script>
+const reviewBtn = document.getElementById('addReviewBtn');
+const reviewInput = document.getElementById('reviewInput');
+const reviewSection = document.getElementById('reviewSection');
+
+reviewBtn.addEventListener('click', () => {
+  if (reviewInput.value.trim() !== '') {
+    const div = document.createElement('div');
+    div.className = 'weather-detail';
+    div.innerHTML = `<strong>User:</strong> ${reviewInput.value}`;
+    reviewSection.appendChild(div);
+    reviewInput.value = '';
+  }
+});
+</script>
+
+</body>
+</html>
